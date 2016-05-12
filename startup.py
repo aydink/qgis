@@ -7,7 +7,7 @@ iface = qgis.utils.iface
 iface.mainWindow().statusBar().show()
 
 
-sourceCrs = QgsCoordinateReferenceSystem(iface.mapCanvas().mapRenderer().destinationCrs().postgisSrid())
+sourceCrs = QgsCoordinateReferenceSystem(iface.mapCanvas().mapSettings().destinationCrs().postgisSrid())
 destCrs = QgsCoordinateReferenceSystem(4326)
 xform = QgsCoordinateTransform(sourceCrs, destCrs) #you can also do reverse convertion
 
@@ -15,7 +15,7 @@ def updateSourceCrs():
 	global sourceCrs
 	global destCrs
 	global xform
-	sourceCrs = QgsCoordinateReferenceSystem(iface.mapCanvas().mapRenderer().destinationCrs().postgisSrid())
+	sourceCrs = QgsCoordinateReferenceSystem(iface.mapCanvas().mapSettings().destinationCrs().postgisSrid())
 	destCrs = QgsCoordinateReferenceSystem(4326)
 	xform = QgsCoordinateTransform(sourceCrs, destCrs) #you can also do reverse convertion
 
